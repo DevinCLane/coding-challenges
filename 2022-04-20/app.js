@@ -4,7 +4,7 @@
 
 // My Notes:
 // if each dragon requires 2 bullets,
-git // then we can write: as long as bullets*2 >= dragons, then he survives, otherwise he doesn't
+// then we can write: as long as bullets*2 >= dragons, then he survives, otherwise he doesn't
 
 function hero(bullets, dragons) {
     if (bullets >= dragons * 2) {
