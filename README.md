@@ -8,6 +8,7 @@ I'm using coding challenges to improve my data structures and algorithms skills.
 
 ## Current stats 
 ![image](https://www.codewars.com/users/DevinCLane/badges/large)
+[My Profile](https://www.codewars.com/users/DevinCLane)
 
 ### License
 
