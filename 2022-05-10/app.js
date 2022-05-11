@@ -13,7 +13,6 @@ Your points are not included in the array of your class's points. For calculatin
 
 function betterThanAverage(classPoints, yourPoints) {
     classPoints.push(yourPoints);
-    classPoints.sort((a, b) => a - b);
     let sum = 0;
     for (let i = 0; i < classPoints.length; i++) {
         sum += classPoints[i];
