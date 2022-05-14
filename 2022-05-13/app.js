@@ -22,9 +22,13 @@ Examples
 26  =>  false
 */
 
+// first pass
 const isSquare = n => {
-    Number.isInteger(Math.sqrt(n))
+    return Number.isInteger(Math.sqrt(n)) ? true : false;
 }
+
+// clean it up
+const isSquareCleaned = n => Number.isInteger(Math.sqrt(n));
 
 // is this times this equals a new problem
 // 2 * 2 = 4 
@@ -33,9 +37,9 @@ const isSquare = n => {
 // anything sqrt = integer
 
 // tests
-console.log(isSquare(-1), false, "-1: Negative numbers cannot be square numbers");
-console.log(isSquare( 0), true, "0 is a square number (0 * 0)");
-console.log(isSquare( 3), false, "3 is not a square number");
-console.log(isSquare( 4), true, "4 is a square number (2 * 2)");
-console.log(isSquare(25), true, "25 is a square number (5 * 5)");
-console.log(isSquare(26), false, "26 is not a square number");
+console(isSquare(-1), false, "-1: Negative numbers cannot be square numbers");
+console(isSquare( 0), true, "0 is a square number (0 * 0)");
+console(isSquare( 3), false, "3 is not a square number");
+console(isSquare( 4), true, "4 is a square number (2 * 2)");
+console(isSquare(25), true, "25 is a square number (5 * 5)");
+console(isSquare(26), false, "26 is not a square number");
