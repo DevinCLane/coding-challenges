@@ -20,7 +20,7 @@ function smash(words) {
 }
 
 // cleaning things up
-const smashTogether = words => words.join(' ');
+const smashTogether = words => words.join(' '); 
 
 // test cases
 console.log(smash(["hello", "world"]), "hello world");
