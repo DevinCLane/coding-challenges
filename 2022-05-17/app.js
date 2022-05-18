@@ -25,19 +25,21 @@ const getSum = (a, b) => {
     let sum = 0;
     if (a === b) {
         return a;
+    // if a < b loop starting at a, count each integer while <= b
     } else if (a < b) {
         while (a <= b) {
             sum += a
             a++
         }
+    // if a > b loop starting at a, count each integer down while a >= b
     } else if (a > b) {
         while (a >= b) {
             sum += a;
             a--
         }
     } return sum
-    // if a < b loop starting at a, count each integer while <= b
-    // if a > b loop starting at b, count each integer down while b >= a
+
+    
 }
 
 // test cases
