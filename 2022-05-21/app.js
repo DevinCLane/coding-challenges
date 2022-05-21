@@ -16,9 +16,9 @@ Example: (getCount("abracadabra"), 5)
 
 
 function getCount(str) {
-    let arr = str.split('');
-    // if the string includes a vowel, add one to the count.
-    return arr.filter(letter => 'aeiou'.includes(letter)).length
+    let arr = str.split(''); // convert string to array
+    // filter the array. for each element of the array we ask: does 'aeiou' contain the same letter of that element of the array? filter creates a new array with the elements that pass this test (the vowels). then we return the length of that array.
+    return arr.filter(letter => 'aeiou'.includes(letter)).length 
   }
 
 // make it shorter
@@ -30,7 +30,7 @@ function countVowelsForLoop(str) {
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     for (let i = 0; i < str.length; i++) {
         for (let j = 0; j < vowels.length; j++) {
-            if (str[i] === vowels[j]) { // check letter of string against each vowel, then advance to next letter of string against each vowel, and so on...
+            if (str[i] === vowels[j]) { // check letter of string against each vowel (by advancing through our j=0, j=1, etc in the vowels array ), then advance to next letter of string against each vowel, and so on...
                 vowelCount++
             }
         }
