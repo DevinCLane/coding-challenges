@@ -22,5 +22,7 @@ const pangram = string => {
     return alphabet.every(element => arr.includes(element));
 }
 
+
+
 console.log(pangram("The quick brown fox jumps over the lazy dog."), true);
 console.log(pangram("The quick brown dog."), false);
