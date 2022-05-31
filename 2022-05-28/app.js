@@ -28,8 +28,13 @@ const longest = (s1, s2) => {
 
 // cleaning things up
 const longestV2 = (s1, s2) => {
+    // using a spread operator. could also use Array.from
     return [...new Set(s1 + s2)].sort().join('');
 }
+
+
+
+
 
 // tests
 console.log(longest("aretheyhere", "yestheyarehere"), "aehrsty")
