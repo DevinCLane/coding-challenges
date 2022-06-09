@@ -16,7 +16,17 @@ Return: true or false only if we have 4 numbers or 6 numbers: positive integers
 
 
 const validatePIN = pin => {
-    return (!pin.toLowerCase().includes('abcdefghijklmnopqrstuvwxyz') && +pin >= 0 && pin.length === 4 || pin.length === 6)
+    if (pin.length != 4 && pin.length != 6) {
+        return false
+    }
+    for (let i in pin) {
+        if (pin[i] > '9' || pin[i] < '0') {
+            return false
+        }
+    }
+    return true;
+}
+
 
 
 // test cases
