@@ -49,6 +49,23 @@ const twoSum = (nums, target) => {
     }
 }
 
+// fancier solution
+
+const twoSumFancy = (nums, target) => {
+    const prevValues = {}
+    for (let i = 0; i < nums.length; i++) {
+        const currentNum = nums[i]
+        const neededValue = target - currentNum
+        const index2 = prevValues[neededValue]
+        if (index2 != null) {
+            return [index2, i]
+        } else {
+            prevValues[currentNum] = i
+        }
+    }
+}
+
 // test cases
 
 console.log(twoSum([2,7,11,15], 9), [0, 1])
+console.log(twoSumFancy([2,7,11,15], 9), [0, 1])
