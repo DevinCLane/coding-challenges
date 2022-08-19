@@ -36,19 +36,26 @@ const validParentheses = s => {
         ']': '[',
         '}': '{'
     };
+
+    if (!s) {
+        return false
+    }
+
     for (let i = 0; i < s.length; i++) {
         let current = s.charAt(i);
         // if we see a closing parentheses
         if (hash[current]) {
             // look to the top element
-            let topElement = stack.length === 0 ? '#' : stack.pop();
+            const topElement = stack.length === 0 ? '#' : stack.pop();
             // if the top element is not a matching opening parentheses
             // then it's false
-            if (topElement != hash[current]) {
+            if (topElement !== hash[current]) {
                 return false;
             }
         // if we have an opening parentheses, push it to the stack
-        } else stack.push(current)
+        } else {
+            stack.push(current)
+        }
     }
     // if the stack is empty, it's true, otherwise false
     return stack.length === 0;
