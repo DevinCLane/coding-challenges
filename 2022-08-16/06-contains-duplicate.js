@@ -17,9 +17,6 @@ parameters: integery array
 return: true if any value appears twice, false if not
 */
 
-const containsDuplicateBrute = nums => {
-
-}
 
 const containsDuplicateElegant = nums => {
     const numsSet = new Set();
@@ -35,5 +32,7 @@ console.log(containsDuplicateElegant([1,1,1,3,3,4,3,2,4,2]), true)
 console.log(containsDuplicateElegant([1,3,4,2]), false)
 
 const containsDuplicateMoreElegant = nums => {
+    // make a new Set from `nums`
+    // if they aren't equal in length, then that means original `nums` contains extras
     return new Set(nums) !== nums.length
 }
