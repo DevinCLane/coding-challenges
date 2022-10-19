@@ -13,8 +13,18 @@ getAverage([1,2,3,4,5,]),3);
 getAverage([1,1,1,1,1,1,1,2]),1)
 */
 
-const getAverage = arr => Math.floor(arr.reduce((a, c) => a + c) / arr.length)
+const getAverage = arr => {
+    const sum = arr.reduce((a, c) => a + c, 0)
+    return Math.floor(sum / arr.length)
+}
+
+// as a one-liner
+const getAverageOneLiner = arr => Math.floor((arr.reduce((a, c) => a + c, 0) / arr.length))
 
 console.log(getAverage([2,2,2,2]),2)
-console.log(getAverage([1,2,3,4,5,]),3);
+console.log(getAverage([1,2,3,4,5,]),3)
 console.log(getAverage([1,1,1,1,1,1,1,2]),1)
+
+console.log(getAverageOneLiner([2,2,2,2]),2)
+console.log(getAverageOneLiner([1,2,3,4,5,]),3);
+console.log(getAverageOneLiner([1,1,1,1,1,1,1,2]),1)
