@@ -34,4 +34,4 @@ const mostRecurring2 = str => {
 
 }
 
-console.log(mostRecurring2('hello'), 'l')
+console.log(mostRecurring2('healolazz'), 'l')
