@@ -10,10 +10,6 @@ domainName("https://www.cnet.com") == "cnet
 // 
 
 const urlParser = url => {
-    // remove https://
-    // remove http://
-    // remove www.
-    // remove .com
     const domainName = url.replace('https://', '').replace('http://', '').replace('www.', '').replace('com', '')
     const domainNameArray = domainName.split('.')
     return domainNameArray[0]
