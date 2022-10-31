@@ -32,3 +32,17 @@ console.log(duplicateEncoder("din"), "(((")
 console.log(duplicateEncoder("recede"), "()()()")
 console.log(duplicateEncoder("Success"), ")())())")
 console.log(duplicateEncoder("(( @"), "))((")
+
+// using map()
+
+const duplicateEncoder2 = str => {
+    return str.toLowerCase()
+        .split('')
+        .map((l, i, a) => a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")")
+        .join('')
+}
+
+console.log(duplicateEncoder2("din"), "(((")
+console.log(duplicateEncoder2("recede"), "()()()")
+console.log(duplicateEncoder2("Success"), ")())())")
+console.log(duplicateEncoder2("(( @"), "))((")
