@@ -43,3 +43,6 @@ const averageLength2 = arr => {
 console.log(averageLength2(['u', 'y']), ['u', 'y']) // average length is 1
 console.log(averageLength2(['aa', 'bbb', 'cccc']), ['aaa', 'bbb', 'ccc']) // average length is 3
 console.log(averageLength2(['aa', 'bb', 'ddd', 'eee']), ['aaa', 'bbb', 'ddd', 'eee']) // average length is 2.5 round up to 3
+
+
+// the average of the strings could also be average = Math.round(arr.join('').length / arr.length)
