@@ -18,10 +18,20 @@ const dup = arr => {
         result.push(item.split('').filter((element, index, array) => element !== array[index - 1]).join(''))
     }
     return result
-    // reduce array, if prev === cur, remove current, otherwise move on
-
 }
 
 console.log(dup(["ccooddddddewwwaaaaarrrrsssss","piccaninny","hubbubbubboo"]),['codewars','picaniny','hubububo'])
 console.log(dup(["abracadabra","allottee","assessee"]),['abracadabra','alote','asese'])
 console.log(dup(["kelless","keenness"]), ['keles','kenes'])
+
+// refactor using map
+
+const dup2 = arr => {
+    return arr.map(word => {
+        return word.split('').filter((element, index, array) => element !== array[index - 1]).join('')
+    })
+}
+
+console.log(dup2(["ccooddddddewwwaaaaarrrrsssss","piccaninny","hubbubbubboo"]),['codewars','picaniny','hubububo'])
+console.log(dup2(["abracadabra","allottee","assessee"]),['abracadabra','alote','asese'])
+console.log(dup2(["kelless","keenness"]), ['keles','kenes'])
