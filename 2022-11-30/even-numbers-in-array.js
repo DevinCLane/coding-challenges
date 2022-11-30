@@ -14,8 +14,8 @@ https://www.codewars.com/kata/5a431c0de1ce0ec33a00000c/solutions/javascript
 
 const evenNumbers = (arr, number) => {
     // filter for even numbers
-    return arr.filter(ele => ele % 2 === 0).slice(-number)
     // slice (-number)
+    return arr.filter(ele => ele % 2 === 0).slice(-number)
 }
 
 console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3), [4, 6, 8])
