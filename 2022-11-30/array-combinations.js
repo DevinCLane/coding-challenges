@@ -19,11 +19,7 @@ Set (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Ob
 */
 
 function arrayCombinations(arrays) {
-    return arrays.reduce((acc, curr) => {
-        return acc * (new Set(curr).size)
-    }, 1)
-    // map, reduce
-    // number of unique items in each array, multiply them
+    return arrays.reduce((acc, curr) => acc * new Set(curr).size, 1)
 }
 
 console.log(arrayCombinations([[1,2],[4],[5,6]]),4)

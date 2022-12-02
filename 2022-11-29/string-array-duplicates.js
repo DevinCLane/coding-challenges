@@ -26,7 +26,7 @@ console.log(dup(["kelless","keenness"]), ['keles','kenes'])
 
 // refactor using map
 
-const dup2 = arr => {
+const dup = arr => {
     return arr.map(word => {
         return word.split('').filter((element, index, array) => element !== array[index - 1]).join('')
     })
