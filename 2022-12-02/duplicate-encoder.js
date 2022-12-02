@@ -14,12 +14,12 @@ https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/javascript
 */
 
 const duplicateEncoder = str => {
+    // does the letter repeat? => ), else (
+        // if we need to do an operation on each member and return a new array of the results, we will consider map
     return [...str.toLowerCase()].map((value, index, array) => {
         return array.indexOf(value) !== array.lastIndexOf(value) ? ")" : "("
     })
     .join('')
-    // does the letter repeat? => ), else (
-    // if we need to do an operation on each member and return a new array of the results, we will consider map
 }
 
 console.log(duplicateEncoder("din"), "(((")
