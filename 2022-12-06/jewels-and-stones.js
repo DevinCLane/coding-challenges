@@ -52,5 +52,23 @@ const numJewelsInStones = (jewels, stones) => {
     return stones.split('').reduce((acc, curr) => jewelsSet.has(curr) ? ++acc : acc, 0)
 }
 
+// try again and clean it up
+const numJewelsInStones2 = (jewels, stones) => {
+    const map = {}
+    let count = 0
+    for (const jewel of jewels) {
+        map[jewel] = true
+    }
+
+    for (const stone of stones) {
+        if (map[stone]) {
+            count++
+        }
+    }
+    return count;
+}   
+
 console.log(numJewelsInStones("aA", "aAAbbbb"), 3)
 console.log(numJewelsInStones("z", "ZZ"), 0)
+console.log(numJewelsInStones2("aA", "aAAbbbb"), 3)
+console.log(numJewelsInStones2("z", "ZZ"), 0)
