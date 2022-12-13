@@ -15,11 +15,11 @@ https://www.codewars.com/kata/5878520d52628a092f0002d0/
 const stringTransformer = str => {
     // reverse the words
     const reverseWord = str.split(' ').reverse().join(' ')
+    // reverse the case
     return reverseWord.split('').map((value) => {
         return value === value.toLowerCase() ? value.toUpperCase() : value.toLowerCase()
     })
     .join('')
-    // reverse the case
 }
 
 console.log(stringTransformer("Example Input"), "iNPUT eXAMPLE")
