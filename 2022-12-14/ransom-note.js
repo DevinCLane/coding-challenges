@@ -67,7 +67,7 @@ const ransomNote2 = (note, magazine) => {
         if (magazineMap[word]) {
             magazineMap[word] - 1
         };
-        if (!magazineMap[word] || magazineMap[word] <= 0) {
+        if (!magazineMap[word] || magazineMap[word] < 0) {
             return false;
         }
     }
