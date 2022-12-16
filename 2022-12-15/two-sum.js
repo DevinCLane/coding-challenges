@@ -59,3 +59,21 @@ const twoSum2 = (nums, target) => {
 console.log(twoSum2([2,7,11,15], 9), [0, 1])
 console.log(twoSum2([3,2,4], 6), [1, 2])
 console.log(twoSum2([3,3], 6), [0, 1])
+
+const twoSum3 = (nums, target) => {
+    // store our previously checked value
+    const map = {}
+    for (let i = 0; i < nums.length; ++i) {
+        const currentValue = nums[i]
+        const neededValue = target - currentValue;
+        if (map[neededValue] !== undefined) {
+            return [map[neededValue], i]
+        } else {
+            map[currentValue] = i;
+        }
+    }
+}
+
+console.log(twoSum3([2,7,11,15], 9), [0, 1])
+console.log(twoSum3([3,2,4], 6), [1, 2])
+console.log(twoSum3([3,3], 6), [0, 1])
