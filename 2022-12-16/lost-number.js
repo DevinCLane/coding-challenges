@@ -24,3 +24,18 @@ const findDeletedNumber = (starting, mixed) => {
 console.log(findDeletedNumber([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion') 
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
+
+const findDeletedNumber2 = (starting, mixed) => {
+    // add up the values of both arrays, subtract starting from mixed, or return 0 if they're the same
+    if (starting.length === mixed.length) {
+        return 0
+    }
+    const startingSum = starting.reduce((acc, curr) => acc + curr, 0)
+    const mixedSum = mixed.reduce((acc, curr) => acc + curr, 0)
+    return startingSum - mixedSum
+
+}
+
+console.log(findDeletedNumber2([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion') 
+console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
+console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
