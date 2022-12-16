@@ -36,4 +36,4 @@ console.log(findDeletedNumber2([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion')
 console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
 console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
 
-    // we could also filter by mixed.indexOf(element from starting == -1)
+    // we could also filter by mixed.indexOf(element from starting == -1)   
