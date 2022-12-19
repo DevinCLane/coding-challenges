@@ -29,3 +29,17 @@ console.log(duplicateEncoder("din"    ), "(((")
 console.log(duplicateEncoder("recede" ), "()()()")
 console.log(duplicateEncoder("Success"), ")())())")
 console.log(duplicateEncoder("(( @"   ), "))((" )
+
+// using map
+
+const duplicateEncoder2 = str => {
+    return [...str.toLowerCase()].map((value, index, array) => {
+        return array.indexOf(value) === array.lastIndexOf(value) ? "(" : ")"
+    })
+    .join('')
+}
+
+console.log(duplicateEncoder2("din"    ), "(((")
+console.log(duplicateEncoder2("recede" ), "()()()")
+console.log(duplicateEncoder2("Success"), ")())())")
+console.log(duplicateEncoder2("(( @"   ), "))((" )
