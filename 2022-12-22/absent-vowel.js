@@ -27,3 +27,17 @@ const absentVowel = str => {
 
 console.log(absentVowel("John Doe hs seven red pples under his bsket"        ), 0, 'missing: "a"')
 console.log(absentVowel("Bb Smith sent us six neatly arranged range bicycles"), 3, 'missing: "o"')
+
+// we could also just use vowels as a string and use a standard for loop
+
+function absentVowel2(str) {
+    const vowels = 'aeiou'
+    for (let i = 0; i < str.length; i++) {
+        if (str.indexOf(vowels[i]) === -1) {
+            return i;
+        }
+    }
+}
+
+console.log(absentVowel2("John Doe hs seven red pples under his bsket"        ), 0, 'missing: "a"')
+console.log(absentVowel2("Bb Smith sent us six neatly arranged range bicycles"), 3, 'missing: "o"')
