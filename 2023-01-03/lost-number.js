@@ -26,3 +26,34 @@ const findDeletedNumber = (starting, mixed) => {
 console.log(findDeletedNumber([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion') 
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
+
+// brute force / regular for loop
+
+const findDeletedNumber2 = (starting, mixed) => {
+    if (starting.length === mixed.length) {
+        return 0
+    }
+    mixed.sort((a, b) => a - b)
+    for (let i = 0; i < starting.length; i++) {
+        if (starting[i] !== mixed[i]) {
+            return starting[i]
+        }
+    }
+    return 0
+}
+
+console.log(findDeletedNumber2([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion') 
+console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
+console.log(findDeletedNumber2([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
+
+// summing the two values of the arrays
+
+const findDeletedNumber3 = (starting, mixed) => {
+    const startingSum = starting.reduce((acc, curr) => acc + curr, 0)
+    const mixedSum = mixed.reduce((acc, curr) => acc + curr, 0)
+    return startingSum - mixedSum
+}
+
+console.log(findDeletedNumber3([1,2,3,4,5], [3,4,1,5]), 2, 'Deletion') 
+console.log(findDeletedNumber3([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5, 'Deletion') 
+console.log(findDeletedNumber3([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0, 'No deletion')
