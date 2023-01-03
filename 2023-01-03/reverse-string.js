@@ -25,3 +25,24 @@ const reverseString2 = str => {
 
 console.log(reverseString2('hello'), 'olleh')
 console.log(reverseString2('goodbye'), 'eybdoog')
+
+// using a for of loop
+const reverseString3 = str => {
+    let result = ''
+    for (const char of str) {
+        result = char + result;
+    }
+    return result;
+}
+
+console.log(reverseString3('hello'), 'olleh')
+console.log(reverseString3('goodbye'), 'eybdoog')
+
+// using reduce
+
+const reverseString4 = str => {
+    return [...str].reduce((acc, curr) => curr + acc, '')
+}
+
+console.log(reverseString4('hello'), 'olleh')
+console.log(reverseString4('goodbye'), 'eybdoog')
