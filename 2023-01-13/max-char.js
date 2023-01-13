@@ -14,15 +14,12 @@ No String or Array Methods (well brute force it first, but then no methods)!
 const maxChar = str => {
     const strMap = {}
     let maxChar = ''
-    let maxCount = 0
-    let count = 0
     for (const char of str) {
         strMap[char] = ++strMap[char] || 1;
     } 
-    console.log(strMap)
     for (const char in strMap) {
         if (strMap[char] > strMap[maxChar]) {
-            maxChar = char
+            maxChar = strMap[char]
         }
     }
     return maxChar
@@ -30,3 +27,24 @@ const maxChar = str => {
 
 console.log(maxChar("hello"), 'l')
 console.log(maxChar("goodbye"), 'o')
+
+// let's add some extra variables for readability
+
+const maxChar2 = str => {
+    const strMap = {}
+    let maxChar = null
+    let maxCount = 0
+    for (const char of str) {
+        strMap[char] = ++strMap[char] || 1;
+    } 
+    for (const char in strMap) {
+        if (strMap[char] > maxCount) {
+            maxCount = strMap[char]
+            maxChar = char;
+        }
+    }
+    return maxChar
+}
+
+console.log(maxChar2("hello"), 'l')
+console.log(maxChar2("goodbye"), 'o')
