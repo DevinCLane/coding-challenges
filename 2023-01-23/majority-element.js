@@ -25,7 +25,7 @@ const majorityElement = nums => {
     let maxNum = null;
     let numCount = 0
     for (const num in hashMap) {
-        if (num > maxNum) {
+        if (hashMap[num] > numCount) {
             maxNum = num
             numCount = hashMap[num]
         }
