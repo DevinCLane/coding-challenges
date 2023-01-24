@@ -12,6 +12,7 @@ https://www.codewars.com/kata/578aa45ee9fd15ff4600090d
 const sortByOdd = arr => {
     // filter for the odds, sort that array
     // map over the orginal array to create a new array that will ask: if it's even pass it through, if it's odd, pull from our sorted odds array
+    // we sort things in descending order so that we can then use pop(), which is more efficient than using shift()
     const odds = arr.filter(value => value % 2 !== 0).sort((a, b) => b - a)
     return arr.map(value => value % 2 === 0 ? value : odds.pop())
 }
