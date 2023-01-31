@@ -10,13 +10,11 @@ console.log(greatestCommonDivisor(1,1),1)
 
 // for loops
 const greatestCommonDivisor = (a, b) => {
-    let greatest = 0;
-    for (let i = 1; i <= a; i++) {
+    for (let i = Math.min(a, b); i > 0; i--) {
         if (a % i === 0 & b % i === 0) {
-            greatest = i;
+            return i
         }
     }
-    return greatest 
 }
 
 console.log(greatestCommonDivisor(30,12),6)
