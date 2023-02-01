@@ -22,3 +22,12 @@ function greatestCommonDivisor(x, y) {
 console.log(greatestCommonDivisor(30,12),6)
 console.log(greatestCommonDivisor(8,9),1)
 console.log(greatestCommonDivisor(1,1),1)
+
+// with recursion
+function greatestCommonDivisor(x, y) {
+    return y === 0 ? x : greatestCommonDivisor(y, x % y)
+}
+
+console.log(greatestCommonDivisor(30,12),6)
+console.log(greatestCommonDivisor(8,9),1)
+console.log(greatestCommonDivisor(1,1),1)
