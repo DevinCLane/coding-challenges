@@ -27,8 +27,10 @@ console.log(greatestCommonDivisor(1,1),1)
 
 // with recursion
 const greatestCommonDivisor2 = (x, y) => {
+    // once y is 0, we've finished and have our base case.
     if (y === 0) {
         return x
+        // the Euclidean algorithm for GCD is GCD(x, y) = GCD(y, r) where x = y * q + r; q = quotient, r = remainder
     } else {
         return greatestCommonDivisor2(y, x % y)
     }
