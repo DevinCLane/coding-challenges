@@ -3,23 +3,23 @@ Implement a queue in javascript
 */
 
 // with arrays
-// class Queue {
-//     constructor() {
-//         this.list = []
-//     }
+class Queue {
+    constructor() {
+        this.list = []
+    }
 
-//     size() {
-//         return this.list.length
-//     }
+    size() {
+        return this.list.length
+    }
 
-//     enqueue(item) {
-//         this.list.push(item)
-//     }
+    enqueue(item) {
+        this.list.push(item)
+    }
 
-//     dequeue(item) {
-//         return this.list.shift()
-//     }
-// }
+    dequeue(item) {
+        return this.list.shift()
+    }
+}
 
 // using objects for better efficiency to not use shift
 
