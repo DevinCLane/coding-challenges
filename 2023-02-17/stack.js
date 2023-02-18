@@ -11,8 +11,8 @@ class Stack {
     }
 
     push(element) {
-        this.storage[this.size] = element
         this.size++
+        this.storage[this.size] = element
     }
 
     pop() {
@@ -20,6 +20,10 @@ class Stack {
         delete this.storage[this.size]
         this.size--
         return removed
+    }
+
+    peek() {
+        return this.storage[this.size]
     }
 }
 
