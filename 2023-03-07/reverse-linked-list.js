@@ -41,7 +41,7 @@ class LinkedList {
     reverseList() {
         let current = this.head
         let prev = null
-        while(current) {
+        while (current) {
             const temp = current.next
             current.next = prev
             prev = current
