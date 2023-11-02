@@ -6,7 +6,7 @@ Given a number as an input, print out every integer from 1 to that number. Howev
 */
 
 const fizzBuzz = (num) => {
-    for (let i = 0; i <= num; i++) {
+    for (let i = 1; i <= num; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log("fizzbuzz");
         } else if (i % 3 === 0) {
