@@ -16,11 +16,21 @@ Reduce (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
 Set (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 */
 
+// const arrayCombinations = (arr) => {
+//     // number of unique elements in each subarray
+//     // multiply that number
+//     // use Set.size and reduce
+//     return arr.reduce((acc, curr) => acc * new Set(curr).size, 1);
+// };
+
+// refactor using a for of loop
+
 const arrayCombinations = (arr) => {
-    // number of unique elements in each subarray
-    // multiply that number
-    // use Set.size and reduce
-    return arr.reduce((acc, curr) => acc * new Set(curr).size, 1);
+    let result = 1;
+    for (const sub of arr) {
+        result *= new Set(sub).size;
+    }
+    return result;
 };
 
 console.log(arrayCombinations([[1, 2], [4], [5, 6]]), 4);
