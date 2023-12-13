@@ -28,6 +28,7 @@ const maxCharacter2 = (str) => {
     const strMap = {};
     let maxChar = undefined;
     let maxCount = 0;
+
     for (const char of str) {
         strMap[char] = ++strMap[char] || 1;
     }
