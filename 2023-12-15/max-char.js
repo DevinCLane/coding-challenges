@@ -32,8 +32,6 @@ console.log(maxChar("hello world"), "l");
 console.log(maxChar("goodbye"), "o");
 
 const maxChar2 = (str) => {
-    let maxChar;
-    let maxCount = 0;
     const strMap = {};
     for (const char of str) {
         strMap[char] = ++strMap[char] || 1;
