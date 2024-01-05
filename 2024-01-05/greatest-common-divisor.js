@@ -26,6 +26,9 @@ console.log(greatestCommonDivisor(1, 1), 1);
 
 // recursive solution
 const greatestCommonDivisor2 = (x, y) => {
+    // Euclidean algorithm says gcd(x, y) === gcd(q, r)
+    // where q is quotient (i.e., y), and r is remainder (i.e., x % y)
+    // https://en.wikipedia.org/wiki/Euclidean_algorithm
     return y === 0 ? x : greatestCommonDivisor2(y, x % y);
 };
 
