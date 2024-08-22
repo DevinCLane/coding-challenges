@@ -20,16 +20,7 @@ https://leetcode.com/problems/maximum-depth-of-binary-tree/
 */
 // DFS with recursion
 // O(n)
-const maxDepth = (root) => {
+export const maxDepth = (root) => {
     if (!root) return 0;
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
-
-// define a treenode class for creating the binary tree
-class TreeNode {
-    constructor(val = 0, left = null, right = null) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
