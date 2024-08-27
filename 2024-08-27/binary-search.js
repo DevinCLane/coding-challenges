@@ -2,6 +2,12 @@
 Implement a binary search tree
 */
 
+/**
+ * binary search on a sorted array
+ * @param {number[]} nums - the sorted array to search
+ * @param {number} target = the target value to find
+ * @returns {number} the index of the target if found, or -1 if not found
+ */
 const binarySearch = (nums, target) => {
     if (!nums || nums.length === 0) return -1;
 
