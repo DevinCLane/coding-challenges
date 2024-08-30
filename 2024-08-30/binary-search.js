@@ -31,8 +31,10 @@ const binarySearch = (nums, target) => {
         if (nums[mid] === target) {
             return mid;
         } else if (nums[mid] > target) {
+            // exclude the mid element that's already been checked
             end = mid - 1;
         } else {
+            // exclude the mid element that's already been checked
             start = mid + 1;
         }
     }
