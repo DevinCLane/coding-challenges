@@ -26,6 +26,7 @@ const sortByLastChar = (str) => {
     return str.split(" ").sort(
         // using char code gives us an actual number to compare
         // doesn't work if you just compare the characters directly
+        // could also use locale compare
         (a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1)
     );
 };
