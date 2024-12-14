@@ -15,28 +15,27 @@ note: this is not always the most optimal solution, and it's very hard to prove 
 const coins = [5, 10, 25];
 
 const makeChange = (coins, amount) => {
-    // sort the coins largest to smallest
+    // sort the coins in reverse order
     coins.sort((a, b) => b - a);
-    // set coin total variable
-    let coinTotal = 0;
-    // set counter i variable
+    // set up coin counter
+    let coinCount = 0;
+    // set up counter i
     let i = 0;
-
-    // while the amount is greater than 0
+    // while amount is greater than 0
     while (amount > 0) {
         // if the current coin is less than or equal to the amount
         if (coins[i] <= amount) {
-            // subtract the coin value from the amount
+            // subtract the coin from the amount
             amount -= coins[i];
-            // increase the coin counter
-            coinTotal++;
+            // increment the coin counter
+            coinCount++;
         } else {
-            // else increment i
+            // otherwise increment the counter to check the next coin
             i++;
         }
     }
-    // return the coint total
-    return coinTotal;
+    // return the coin count
+    return coinCount;
 };
 
 console.log(makeChange(coins, 40), 3);
