@@ -46,7 +46,7 @@ console.log(fibonacci(4), 3);
 console.log(fibonacci(5), 5);
 console.log(fibonacci(6), 8);
 
-// recursive
+// recursive with memoization
 const fibonacci2 = (n) => {
     if (n < 2) {
         return n;
