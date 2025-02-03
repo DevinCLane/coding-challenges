@@ -82,7 +82,6 @@ const validAnagram3 = (s, t) => {
     t = t.toLowerCase();
 
     const count = new Array(26).fill(0);
-
     for (let i = 0; i < s.length; i++) {
         // "a".charCodeAt(0) calls the method charCodeAt on the string "a" at the position 0 (which is the string "a")
         // this gets us the value of 97
@@ -91,11 +90,10 @@ const validAnagram3 = (s, t) => {
         // this gives us its 0 based position in the alphabet
         // e.g. "a" (97) - 97 = 0 (first position)
         // e.g. "b" (98) - 97 = 1 (second position)
-        // e.g. "z" (122) - 97 = 25 (26th position)
         count[s.charCodeAt(i) - "a".charCodeAt(0)]++;
         count[t.charCodeAt(i) - "a".charCodeAt(0)]--;
     }
-    return count.every((val) => val === 0);
+    return count.every((value) => value === 0);
 };
 
 console.log(validAnagram3("racecar", "carrace"), true);
