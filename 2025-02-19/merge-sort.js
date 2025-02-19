@@ -3,8 +3,7 @@ Implement merge sort
 
 [2, 1, 5, 3, 4]
 [2, 1, 5], [3, 4]
-[2, 1], [5], [3], [4]
-[2], [1], [5], [3], [4]
+[2] [1] [5], [3] [4]
 [1, 2, 5], [3, 4]
 1, 2, 3, 4, 5
 */
@@ -14,6 +13,7 @@ Implement merge sort
  * @param {number[]} arr - the array to sort
  * @returns {number[]} - the sorted array
  */
+// repeatedly split the array in half, until you have single numbers
 function mergeSort(arr) {
     // base case
     // if the array is length 1, then it's already sorted, so return the array
@@ -34,10 +34,11 @@ function mergeSort(arr) {
 
 /**
  *
- * @param {number[]} left
- * @param {number[]} right
- * @returns {number[]}
+ * @param {number[]} left - already sorted smaller array
+ * @param {number[]} right - already sorted smaller array
+ * @returns {number[]} - sorted array
  */
+// merge / sort the smaller arrays into larger arrays
 function merge(left, right) {
     // index left
     let indexLeft = 0;
