@@ -57,28 +57,30 @@ function kthLargest(nums, k) {
 
     // recursive helper function to partition array around a pivot
     const quickSelect = (left, right) => {
+        // set the pivot to the further right element
         let pivot = nums[right];
-        let p = left;
+        // start the pointer at the left
+        let pointer = left;
 
         // move all elements smaller than pivot to the left
         for (let i = left; i < right; i++) {
             if (nums[i] <= pivot) {
-                [nums[p], nums[i]] = [nums[i], nums[p]];
-                p++;
+                [nums[pointer], nums[i]] = [nums[i], nums[pointer]];
+                pointer++;
             }
         }
-        [nums[p], nums[right]] = [nums[right], nums[p]];
+        [nums[pointer], nums[right]] = [nums[right], nums[pointer]];
 
         // recursive selection
         // search left side
-        if (p > k) {
-            return quickSelect(left, p - 1);
+        if (pointer > k) {
+            return quickSelect(left, pointer - 1);
             // search right side
-        } else if (p < k) {
-            return quickSelect(p + 1, right);
+        } else if (pointer < k) {
+            return quickSelect(pointer + 1, right);
             // answer is found
         } else {
-            return nums[p];
+            return nums[pointer];
         }
     };
     return quickSelect(0, nums.length - 1);
