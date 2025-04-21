@@ -37,15 +37,30 @@ function kthLargest(nums, k) {
     return sorted[k - 1];
 } */
 
-// using quick select algorithm
+/* 
+using quick select algorithm
+
+average case: O(n)
+worst case: O(n^2)
+
+naive sorting above = O(n log n)
+
+this is more efficient because we don't need to sort the entire aray
+*/
 
 function kthLargest(nums, k) {
+    // turn the kth largest element into finding the (n - k)th smallest element
+    // if arr.length = 6, 2nd largest = 5th smallest-- n - k = 4
+    // [1, 2, 3, 4, 5, 6], k = 2
+    // 6 - 2 = 4
     k = nums.length - k;
 
+    // recursive helper function to partition array around a pivot
     const quickSelect = (left, right) => {
         let pivot = nums[right];
         let p = left;
 
+        // move all elements smaller than pivot to the left
         for (let i = left; i < right; i++) {
             if (nums[i] <= pivot) {
                 [nums[p], nums[i]] = [nums[i], nums[p]];
@@ -54,10 +69,14 @@ function kthLargest(nums, k) {
         }
         [nums[p], nums[right]] = [nums[right], nums[p]];
 
+        // recursive selection
+        // search left side
         if (p > k) {
             return quickSelect(left, p - 1);
+            // search right side
         } else if (p < k) {
             return quickSelect(p + 1, right);
+            // answer is found
         } else {
             return nums[p];
         }
