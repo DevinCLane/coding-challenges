@@ -16,41 +16,41 @@ Constraints:
 -104 <= nums[i] <= 104
 */
 
-// function kth largest(nums, k)
+// function nums k
 function kthLargest(nums, k) {
     // k = nums.length - k
     k = nums.length - k;
-    // function quickSelect(left, right)
+    // quick sort (left, right)
     function quickSelect(left, right) {
-        // pointer = left
+        // pointer
         let pointer = left;
-        // pivot = nums[right]
+        // pivot
         let pivot = nums[right];
-        // for i = left, l < right
+        // for loop
         for (let i = left; i < right; i++) {
-            // if nums[i] <= nums[pivot]
+            // if nums[i] <= pivot
             if (nums[i] <= pivot) {
-                // swap pointer and i
-                // [i, pointer] [pointer, i]
-                [nums[pointer], nums[i]] = [nums[i], nums[pointer]];
-                // pointer++
+                // swap i and pointer
+                [nums[i], nums[pointer]] = [nums[pointer], nums[i]];
+                // increment pointer
                 pointer++;
             }
-            // swap pivot and pointer
         }
+        // swap pointer and pivot
         [nums[pointer], nums[right]] = [nums[right], nums[pointer]];
-        // quick sort logic
-        // if pointer > k, quickselect on left
+
+        // if p > k, left
         if (pointer > k) {
             return quickSelect(left, pointer - 1);
+            // if p < k, right
         } else if (pointer < k) {
-            // if pointer < k, quick select on rigth
             return quickSelect(pointer + 1, right);
-            // otherwise we found our value: return nums[pointer]
+            // otherwise return nums[pointer]
         } else return nums[pointer];
     }
+    // run quick select 0, nums.length - 1
     return quickSelect(0, nums.length - 1);
 }
 
-console.log(kthLargest([3, 2, 1, 5, 6, 4], 2), 5);
-console.log(kthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4), 4);
+console.log(kthLargest([3, 2, 1, 5, 6, 4], 2), "expect: 5");
+console.log(kthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4), "expect: 4");
