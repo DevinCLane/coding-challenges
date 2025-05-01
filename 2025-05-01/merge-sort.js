@@ -19,7 +19,7 @@ function mergeSort(arr) {
     // L sorted = mergesort L
     // R sorted = mergesort R
     // return merge(Lsorted, Rsorted)
-    if (!arr || `arr.length <= 1) {
+    if (!arr || arr.length <= 1) {
         return arr;
     }
 
