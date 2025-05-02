@@ -21,8 +21,7 @@ Constraints:
 -100 <= Node.val <= 100
 */
 
-// implement a queue
-
+// queue
 class Queue {
     constructor() {
         this.head = this.tail = 0;
@@ -51,6 +50,8 @@ class Queue {
     }
 }
 
+// TreeNode
+
 class TreeNode {
     constructor(val = 0, left = null, right = null) {
         this.val = val;
@@ -59,39 +60,50 @@ class TreeNode {
     }
 }
 
+// function root
 /**
  *
  * @param {TreeNode} root
- * @returns {number[][]} - the vertical order traversal of the node values
+ * @returns {number[][]}
  */
-// function root
 function verticalOrderTraversal(root) {
+    // base case: if no root, return []
     if (!root) return [];
-    // queue [[root, 0]]
+    // queue: node, pos [[root, 0]]
     const queue = new Queue([[root, 0]]);
-    // map: pos, [nodes]
+    // map
     const cols = new Map();
 
+    let minCol = 0,
+        maxCol = 0;
+    // while queue isn't empty
     while (!queue.isEmpty()) {
+        // node, pos = dequeue
         const [node, pos] = queue.dequeue();
+        // if hash map doesn't have the position, add the position and empty array
         if (!cols.has(pos)) cols.set(pos, []);
+        // push the value to the hash map node array
         cols.get(pos).push(node.val);
 
+        // track min and max colums
+        minCol = Math.min(minCol, pos);
+        maxCol = Math.max(maxCol, pos);
+
+        // if node left enqueue node.left position -1
         if (node.left) queue.enqueue([node.left, pos - 1]);
+        // if node right enqueue node.right position + 1
         if (node.right) queue.enqueue([node.right, pos + 1]);
     }
 
-    const sortedKeys = Array.from(cols.keys()).sort((a, b) => a - b);
-    return sortedKeys.map((key) => cols.get(key));
+    // instead of sorting, we can just return from the mincol to the max col. thus we eliminate sorting
+    // the prior complexity for sorting column keys is O(k log k) where k is number of columns
+    // this is linear of O(k) where k is number of columns
+    // which means the total is O(n)
+    const result = [];
+    for (let col = minCol; col <= maxCol; col++) {
+        if (cols.has(col)) {
+            result.push(cols.get(col));
+        }
+    }
+    return result;
 }
-
-// while queue isn't empty
-// [node, pos] = queue.dequeue
-// if the cols map doesn't have the pos, add it pos, []
-// add the node value to the nodes array in the map: map.get(pos).push(node.val)
-
-// if node.left queue.enqueue(node.left, position - 1)
-// if node.right queue.enqueue(node.right, position + 1)
-
-// array f rom the maps keys and sort them
-// map over the array keys and return their values from the map
