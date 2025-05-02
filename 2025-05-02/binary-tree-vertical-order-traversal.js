@@ -23,32 +23,75 @@ Constraints:
 
 // implement a queue
 
-// function root
-function verticalOrder(root) {
-    // base case; if no root, return []
-    if (!root) return [];
-    // queue [root, []]
-    // map: cols, position []
-    const queue = new Queue([[root, 0]]);
-    const cols = new Map();
-
-    // while queue isn't empty
-    while (!queue.isEmpty()) {
-        // [pos, node] = queue.dequeue
-        const [node, pos] = queue.dequeue();
-        // if !cols.has(pos) cols.set(pos, [])
-        if (!cols.has(pos)) cols.set(pos, []);
-        // set the position and the node[] in the map
-        cols.get(pos).push(node.val);
-
-        // if node.left exists, enqueue it with position - 1
-        // if node.right exists, enqueue it with position + 1
-        if (node.left) queue.enqueue([node.left, position - 1]);
-        if (node.right) queue.enqueue([node.right, position + 1]);
+class Queue {
+    constructor() {
+        this.head = this.tail = 0;
+        this.storage = {};
     }
 
-    // array from the keys, sort it
-    // map over the keys array and return the values from the map
+    enqueue(item) {
+        this.storage[this.tail] = item;
+        this.tail++;
+    }
+
+    dequeue() {
+        if (this.isEmpty()) return null;
+        const removed = this.storage[this.head];
+        delete this.storage[this.head];
+        this.head++;
+        return removed;
+    }
+
+    isEmpty() {
+        return this.head === this.tail;
+    }
+
+    size() {
+        return this.tail - this.head;
+    }
+}
+
+class TreeNode {
+    constructor(val = 0, left = null, right = null) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+/**
+ *
+ * @param {TreeNode} root
+ * @returns {number[][]} - the vertical order traversal of the node values
+ */
+// function root
+function verticalOrderTraversal(root) {
+    if (!root) return [];
+    // queue [[root, 0]]
+    const queue = new Queue([[root, 0]]);
+    // map: pos, [nodes]
+    const cols = new Map();
+
+    while (!queue.isEmpty()) {
+        const [node, pos] = queue.dequeue();
+        if (!cols.has(pos)) cols.set(pos, []);
+        cols.get(pos).push(node.val);
+
+        if (node.left) queue.enqueue([node.left, pos - 1]);
+        if (node.right) queue.enqueue([node.right, pos + 1]);
+    }
+
     const sortedKeys = Array.from(cols.keys()).sort((a, b) => a - b);
     return sortedKeys.map((key) => cols.get(key));
 }
+
+// while queue isn't empty
+// [node, pos] = queue.dequeue
+// if the cols map doesn't have the pos, add it pos, []
+// add the node value to the nodes array in the map: map.get(pos).push(node.val)
+
+// if node.left queue.enqueue(node.left, position - 1)
+// if node.right queue.enqueue(node.right, position + 1)
+
+// array f rom the maps keys and sort them
+// map over the array keys and return their values from the map
