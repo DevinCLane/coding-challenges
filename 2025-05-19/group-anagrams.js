@@ -56,6 +56,9 @@ console.log(groupAnagrams(["act", "pots", "tops", "cat", "stop", "hat"]), [
 console.log(groupAnagrams(["x"]), [["x"]]);
 console.log(groupAnagrams([""]), [[""]]);
 
+// time complexity: O (n * k)
+// where n in the number of strings in the input array
+// and k is the length of the longest string
 const groupAnagrams2 = (strs) => {
     const result = new Map();
     // create an array of 26 0s
