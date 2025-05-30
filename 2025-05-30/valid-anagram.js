@@ -27,7 +27,8 @@ const compareLength = (s, t) => {
 // sort the strings
 // return if the sorted strings are equal
 /**
- * time complexity - O(n * k log k) where n is the length of string
+ * time complexity - O(n log n) where n is the length of string
+ * space: O(n) where n is the length of the string. creating new arrays for the split operation
  * @param {string} s
  * @param {string} t
  * @returns {boolean}
@@ -47,6 +48,10 @@ console.log(validAnagram1("jar", "jam"), false);
 // otherwise true
 
 /**
+ * time complexity: O(n) where n is the length of the string, single pass through each string
+ * space: O(k) where k is the number of unique characters. worst case: k could be n if all unique characters
+ *
+ * more efficient than sorting
  *
  * @param {string} s
  * @param {string} t
@@ -78,13 +83,22 @@ console.log(validAnagram2("jar", "jam"), false);
 // subtract it from the t string
 // run .every on the array, and they should all equal 0
 /**
+ * time complexity: O(n) where n is the length of the string
+ * space: O(1) fixed array size of 26 characters
  *
+ * pros:
+ * most space efficient solution
+ * best solution for lowercase english letters
+ * single pass through strings
+ *
+ * cons:
+ * only works for lowercase english letters
+ * less flexible for different character sets
  * @param {string} s
  * @param {string} t
  * @returns {boolean}
  */
 const validAnagram3 = (s, t) => {
-    if (compareLength(s, t) === false) return false;
     const count = new Array(26).fill(0);
     for (let i = 0; i < s.length; i++) {
         count[s.charCodeAt(i) - "a".charCodeAt(0)]++;
@@ -95,3 +109,32 @@ const validAnagram3 = (s, t) => {
 
 console.log(validAnagram3("racecar", "carrace"), true);
 console.log(validAnagram3("jar", "jam"), false);
+
+/**
+ * time: O(n) where n is the length of the string
+ * space: O(k) where k is number of unique characters
+ *
+ * pros: uses less space than the two hash map solution (only one hash map)
+ *
+ * @param {string} s
+ * @param {string} t
+ * @returns {boolean}
+ */
+const validAnagram4 = (s, t) => {
+    if (compareLength(s, t) === false) return false;
+    const charCount = {};
+
+    for (const char of s) {
+        charCount[char] = (charCount[char] ?? 0) + 1;
+    }
+
+    // if a character isn't is the t hash map it's false
+    // subtract the character we've seen
+    // next time around if the subtraction means the character is no longer in the hash map, return false
+    for (const char of t) {
+        if (!charCount[char]) return false;
+        charCount[char]--;
+    }
+
+    return true;
+};
