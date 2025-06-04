@@ -24,8 +24,8 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 
 // if an element appears more than n / 2 times, then if we sort and return floor of arr[n / 2]
 /**
- * time: O(n log n) - due to sorting the array
- *
+ * time: O(n log n) - where n is the length of the input array (sorting)
+ * space: O(1)
  * @param {number[]} nums
  * @returns {number}
  */
