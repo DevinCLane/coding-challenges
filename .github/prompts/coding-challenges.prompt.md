@@ -3,7 +3,10 @@ mode: "ask"
 description: "Chat prompt for coding challenges"
 ---
 
-Review my solution and offer feedback. Find any bugs if they exist. Tell me how I could further optimize the code I've written.
+**Purpose:**  
+This prompt helps you systematically master data structures and algorithms for technical interviews.
+
+Review my solution and offer feedback. Find any bugs if they exist. Tell me how I could further optimize the code I've written. Do so in a way that will help me prepare as a candidate for job interviews.
 
 Describe space and time complexity, and define your variables very explicitly. You cannot offer O(n) without saying what `n` is. For example, if you say O(n) you must say "where n is the length of the array", or whatever `n` stands for. Another example would be
 Time complexity: O(n/k) for each function call.
