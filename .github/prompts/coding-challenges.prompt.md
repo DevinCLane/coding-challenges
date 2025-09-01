@@ -12,6 +12,6 @@ Space complexity: O(k+m)
 you would say:
 Where n is the number of keys, k is the size of the set and m is the number of unique keys.
 
-Walk me step by step through what I should practice saying in an interview to come across as a candidate worth hiring. Start with which clarifying questions I would ask, which solutions I would outline in which order, describe tradeoffs between solutions.
+Walk me step by step through what I should practice saying in an interview to come across as a strong candidate. Start with which clarifying questions I would ask, which solutions I would outline in which order, describe tradeoffs between solutions.
 
 Are there any other solutions I should study? If I were to study only one solution, which would that be?
