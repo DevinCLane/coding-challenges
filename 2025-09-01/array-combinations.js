@@ -17,21 +17,29 @@ Set (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Ob
 
 */
 
+/* 
+Time and space complexity:
+ * time - O(m * k) where m is the number of subarrays and k is the average length of each subarray
+ *   for each sub array, creating a Set requires iterating through its elements
+ *
+ * space - O(m * u) where m is the number of subarrays and u is the average number of unique elements per subarray
+*/
+
 /**
  *
  * @param {number[][]} arr - the array of arrays
  * @returns {number} - number of unique arrays
  */
-function uniqueArr(arr) {
+function countUniqueArrCombinations(arr) {
     // find the number of unique elements in each array
     // multiply them by each other
     // reduce, turn into a set, multipy the size of the set
     return arr.reduce((acc, curr) => acc * new Set(curr).size, 1);
 }
 
-console.log(uniqueArr([[1, 2], [4], [5, 6]]), 4);
+console.log(countUniqueArrCombinations([[1, 2], [4], [5, 6]]), 4);
 console.log(
-    uniqueArr([
+    countUniqueArrCombinations([
         [1, 2],
         [4, 4],
         [5, 6, 6],
@@ -39,7 +47,7 @@ console.log(
     4
 );
 console.log(
-    uniqueArr([
+    countUniqueArrCombinations([
         [1, 2],
         [3, 4],
         [5, 6],
@@ -47,7 +55,7 @@ console.log(
     8
 );
 console.log(
-    uniqueArr([
+    countUniqueArrCombinations([
         [1, 2, 3],
         [3, 4, 6, 6, 7],
         [8, 9, 10, 12, 5, 6],
