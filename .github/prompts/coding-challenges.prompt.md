@@ -1,5 +1,5 @@
 ---
-mode: "ask"
+agent: Mentor
 description: "Chat prompt for coding challenges"
 ---
 
