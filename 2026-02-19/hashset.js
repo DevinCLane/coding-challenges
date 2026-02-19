@@ -30,9 +30,7 @@ Constraints:
 At most 104 calls will be made to add, remove, and contains.
 */
 
-// node
-// value, next
-class Node {
+class ListNode {
     constructor(key) {
         this.key = key;
         this.next = null;
@@ -41,7 +39,7 @@ class Node {
 
 class HashSet {
     constructor() {
-        this.set = Array.from({ length: 10000 }, () => new Node(0));
+        this.set = Array.from({ length: 10000 }, () => new ListNode(0));
     }
 
     hash(key) {
@@ -49,34 +47,35 @@ class HashSet {
     }
 
     add(key) {
+        // get index by hashing
         const index = this.hash(key);
-        console.log(`adding key ${key}`);
-        console.log(`targeting bucket index ${index}`);
-
-        let curr = this.set[index];
-        let step = 0;
-        console.log(`curr.next = ${curr.next}`);
-        while (curr.next) {
-            step++;
-            console.log(
-                `Step ${step}: checking node with key ${curr.next.key}`,
-            );
-
-            if (curr.next.key === key) {
-                console.log(`Result: key ${key} is a duplicate, abording add`);
+        console.log(`curent index is ${index}`);
+        // grab the current bucket
+        let current = this.set[index];
+        console.log(`current bucket is ${JSON.stringify(current)}`);
+        // if you need to search through the linked list (current.next signifies)
+        while (current.next) {
+            console.log(`current.next = ${current.next}`);
+            if (current.key === key) {
+                console.log(`current.key = key, ${current.key} = ${key}`);
                 return;
             }
-            curr = curr.next;
+            current = current.next;
+            console.log(
+                `increment current to continue the search ${current} = ${current.next}`,
+            );
         }
-        curr.next = new Node(key);
         console.log(
-            `result: key ${key} not found in chain, appended new node at the end`,
+            `creating a new list node if there is no match \n current.next: ${JSON.stringify(current.next)} = ${JSON.stringify(new ListNode(key))}`,
+        );
+        current.next = new ListNode(key);
+        console.log(
+            `so now we have current: ${JSON.stringify(current)} and current.next ${JSON.stringify(current.next)}`,
         );
     }
 }
 
-const set = new HashSet();
-set.add(1);
-set.add(10001);
-set.add(2);
-set.add(2);
+const hashSet = new HashSet();
+hashSet.add(1);
+// hashSet.add(2);
+// hashSet.add(3);
