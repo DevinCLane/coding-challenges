@@ -1,5 +1,4 @@
 /* 
-
 9. 
 705. Design HashSet
 Design a HashSet without using any built-in hash table libraries.
@@ -29,12 +28,11 @@ myHashSet.contains(2); // return False, (already removed)
 Constraints:
 0 <= key <= 106
 At most 104 calls will be made to add, remove, and contains.
-*/
 
-// create an array with 10^6 positions
-// create a hashing function that % the input
-// create a class for list items
-// store a linked list in each position
+a hashset means you can add many things to a data structure without increasing the size of the array
+so you create buckets and then add linked lists to that bucket
+use modulo to deal with collisions
+*/
 
 class ListNode {
     constructor(key) {
@@ -53,13 +51,20 @@ class HashSet {
     }
 
     add(key) {
+        console.log(`add(${key})`);
+        const hashIndex = this.hash(key);
+        console.log(`hashIndex: ${hashIndex}, hash function result`);
         let curr = this.set[this.hash(key)];
+        // why is this while curr.next
         while (curr.next) {
+            console.log(`checking curr.next.key=${curr.next.key}, key=${key}`);
             if (curr.next.key === key) {
+                console.log(`duplicate found, returning early`);
                 return;
             }
             curr = curr.next;
         }
+        console.log(`adding new node with key=${key}`);
         curr.next = new ListNode(key);
     }
 
@@ -73,6 +78,7 @@ class HashSet {
             curr = curr.next;
         }
     }
+
     contains(key) {
         let curr = this.set[this.hash(key)];
         while (curr.next) {
@@ -84,3 +90,13 @@ class HashSet {
         return false;
     }
 }
+
+const hashSet = new HashSet();
+hashSet.add(1);
+hashSet.add(10001);
+hashSet.add(2);
+console.log("contains(1)", hashSet.contains(1), "expect true");
+console.log("contains(1)", hashSet.contains(3), "expect false");
+hashSet.remove(2);
+console.log("contains(2) after remove", hashSet.contains(2), "expect false");
+console.log(hashSet);
