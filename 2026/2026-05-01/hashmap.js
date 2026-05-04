@@ -97,6 +97,9 @@ class HashMap {
     }
 }
 
+/* 
+LLM generated tests below:
+*/
 // ============================================
 // TEST SUITE WITH DETAILED LOGGING
 // ============================================
@@ -162,10 +165,6 @@ function test(description, hashMap, key, value, expectedResult) {
     }
     console.log(`  ─────────────────────`);
 }
-
-/* 
-LLM generated tests below:
-*/
 
 // ============================================
 // SCENARIO 1: Basic Operations
